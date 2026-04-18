@@ -1,9 +1,9 @@
-import CheckHelaConnection from "../components/interactive/CheckHelaConnection"
+import CheckBalance from "../components/interactive/CheckBalance"
 
 const Home = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen text-center">
-      <CheckHelaConnection />
+      <CheckBalance />
     </div>
   )
 }

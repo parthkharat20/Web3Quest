@@ -1,73 +1,78 @@
 import { useState } from "react";
-import { ethers } from "ethers";
 
 const CheckBalance = () => {
-    const [input, setInput] = useState("");
-    const [status, setStatus] = useState("");
+    const [status, setStatus] = useState<"success" | "failed" | "pending">("pending");
+    const [error, setError] = useState<string | null>(null);
 
-    const HELA_CHAIN_ID = "0xa2c68"; // 666888
-    const TOKEN_ADDRESS = "0x28D617d36a02A6367F9ABfF6039C7f1A650Dd0b7";
+    const checkBalance = async () => {
+        setStatus("pending");
+        setError(null);
 
-    const ABI = [
-        "function balanceOf(address owner) view returns (uint256)",
-        "function decimals() view returns (uint8)"
-    ];
+        const input = (document.getElementById("balanceInput") as HTMLInputElement)?.value;
 
-    const verifyBalance = async () => {
+        if (!(window as any).ethereum) {
+            setStatus("failed");
+            setError("MetaMask not found");
+            return;
+        }
+
+        if (!input || isNaN(Number(input))) {
+            setStatus("failed");
+            setError("Invalid input");
+            return;
+        }
+
         try {
-            if (!(window as any).ethereum) {
-                alert("Install MetaMask");
-                return;
-            }
+            const accounts = await (window as any).ethereum.request({
+                method: "eth_requestAccounts",
+            });
 
-            const ethereum = (window as any).ethereum;
-            const provider = new ethers.BrowserProvider(ethereum);
-            await provider.send("eth_requestAccounts", []);
+            const balanceHex = await (window as any).ethereum.request({
+                method: "eth_getBalance",
+                params: [accounts[0], "latest"],
+            });
 
-            const signer = await provider.getSigner();
-            const address = await signer.getAddress();
+            const balance = parseInt(balanceHex, 16) / 1e18;
 
-            const chainId = await ethereum.request({ method: "eth_chainId" });
+            const isCorrect = Math.abs(Number(input) - balance) < 0.0001;
 
-            if (chainId !== HELA_CHAIN_ID) {
-                alert("Switch to Hela Testnet");
-                return;
-            }
-
-            const contract = new ethers.Contract(TOKEN_ADDRESS, ABI, provider);
-
-            const decimals = await contract.decimals();
-            const balanceRaw = await contract.balanceOf(address);
-            const balance = parseFloat(ethers.formatUnits(balanceRaw, decimals));
-
-            const userValue = parseFloat(input);
-
-            if (Math.abs(balance - userValue) < 0.01) {
+            if (isCorrect) {
                 setStatus("success");
             } else {
                 setStatus("failed");
+                setError(`Incorrect balance. Actual: ${balance}`);
             }
-
         } catch (err) {
             console.error(err);
             setStatus("failed");
+            setError("Error fetching balance");
         }
     };
 
     return (
         <div>
+            <p>Task: Enter your wallet balance</p>
+
             <input
-                type="number"
+                id="balanceInput"
+                type="text"
                 placeholder="Enter balance"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
+                className="border px-2 py-1"
             />
 
-            <button onClick={verifyBalance}>
+            <button
+                onClick={checkBalance}
+                className="px-4 py-2 bg-blue-500 text-white rounded ml-2"
+            >
                 Verify
             </button>
 
             <p>{status}</p>
+
+            {status === "failed" && <p className="text-red-500">{error}</p>}
+            {status === "success" && (
+                <p className="text-green-500">Correct Balance</p>
+            )}
         </div>
     );
 };
