@@ -5,7 +5,7 @@ const Home = () => {
 }
 export const metadata = {
   title: 'Home',
-  description: 'Hi There!',
+  description: 'Hi There abc!',
   date: '20/06'
 }
 export default Home
