@@ -1,9 +1,9 @@
-import CheckBalance from "../components/interactive/CheckBalance"
+import SendToSelf from '../components/interactive/SendToSelf'
 
 const Home = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen text-center">
-      <CheckBalance />
+      <SendToSelf />
     </div>
   )
 }
