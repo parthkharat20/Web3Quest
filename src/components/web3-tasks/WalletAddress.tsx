@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { useState, type KeyboardEvent } from "react";
+=======
+import { useState } from "react";
+>>>>>>> 1761b947dfd65ad34da9059e09d9a7b3205a9949
 import { ethers } from "ethers";
 import { CheckCircle2, XCircle, Wallet } from "lucide-react";
 
@@ -30,7 +34,11 @@ const WalletAddress = () => {
         }
     };
 
+<<<<<<< HEAD
     const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
+=======
+    const handleKeyPress = (e: React.KeyboardEvent) => {
+>>>>>>> 1761b947dfd65ad34da9059e09d9a7b3205a9949
         if (e.key === "Enter") {
             verifyAddress();
         }

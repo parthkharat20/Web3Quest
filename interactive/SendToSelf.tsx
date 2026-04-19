@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState, type KeyboardEvent } from "react";
 import { ethers } from "ethers";
 import { CheckCircle2, XCircle, Loader2, Send } from "lucide-react";
@@ -5,6 +6,13 @@ import { useLessonTaskVerification } from "@/src/contexts/LessonTaskVerification
 
 const SendToSelf = () => {
     const lessonTask = useLessonTaskVerification();
+=======
+import { useState } from "react";
+import { ethers } from "ethers";
+import { CheckCircle2, XCircle, Loader2, Send } from "lucide-react";
+
+const SendToSelf = () => {
+>>>>>>> 1761b947dfd65ad34da9059e09d9a7b3205a9949
     const [txHash, setTxHash] = useState("");
     const [status, setStatus] = useState<"pending" | "success" | "failed" | "idle">("idle");
     const [error, setError] = useState<string | null>(null);
@@ -50,7 +58,10 @@ const SendToSelf = () => {
 
             if (from === user && to === user) {
                 setStatus("success");
+<<<<<<< HEAD
                 lessonTask?.markTaskVerified();
+=======
+>>>>>>> 1761b947dfd65ad34da9059e09d9a7b3205a9949
             } else {
                 setStatus("failed");
                 setError("This is not a self-transfer transaction");
@@ -64,7 +75,11 @@ const SendToSelf = () => {
         }
     };
 
+<<<<<<< HEAD
     const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
+=======
+    const handleKeyPress = (e: React.KeyboardEvent) => {
+>>>>>>> 1761b947dfd65ad34da9059e09d9a7b3205a9949
         if (e.key === "Enter") {
             verifyTx();
         }

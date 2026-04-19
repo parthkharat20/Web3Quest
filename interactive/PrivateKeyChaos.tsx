@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { CheckCircle2, XCircle, Download, Loader2 } from "lucide-react";
 
+<<<<<<< HEAD
 const PrivateKeyChaos = () => {
+=======
+const InstallMetaMask = () => {
+>>>>>>> 1761b947dfd65ad34da9059e09d9a7b3205a9949
     const [status, setStatus] = useState<"pending" | "success" | "failed" | "idle">("idle");
     const [isLoading, setIsLoading] = useState(false);
 
@@ -102,4 +106,8 @@ const PrivateKeyChaos = () => {
     )
 }
 
+<<<<<<< HEAD
 export default PrivateKeyChaos;
+=======
+export default InstallMetaMask
+>>>>>>> 1761b947dfd65ad34da9059e09d9a7b3205a9949

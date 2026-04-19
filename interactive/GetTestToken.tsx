@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { ethers } from "ethers";
 import { CheckCircle2, XCircle, Loader2, Coins } from "lucide-react";
+<<<<<<< HEAD
 import { useLessonTaskVerification } from "@/src/contexts/LessonTaskVerificationContext";
+=======
+>>>>>>> 1761b947dfd65ad34da9059e09d9a7b3205a9949
 
 const HELA_TESTNET = {
     chainId: "0xA2D08",
@@ -16,7 +19,10 @@ const HELA_TESTNET = {
 };
 
 const CheckHelaFaucet = () => {
+<<<<<<< HEAD
     const lessonTask = useLessonTaskVerification();
+=======
+>>>>>>> 1761b947dfd65ad34da9059e09d9a7b3205a9949
     const [status, setStatus] = useState<"pending" | "success" | "failed" | "idle">("idle");
     const [error, setError] = useState<string | null>(null);
     const [initialBalance, setInitialBalance] = useState<number | null>(null);
@@ -113,7 +119,10 @@ const CheckHelaFaucet = () => {
 
             if (bal - initialBalance > 0.0001) {
                 setStatus("success");
+<<<<<<< HEAD
                 lessonTask?.markTaskVerified();
+=======
+>>>>>>> 1761b947dfd65ad34da9059e09d9a7b3205a9949
             } else {
                 setStatus("failed");
                 setError("No tokens received yet");

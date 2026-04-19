@@ -1,5 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
+<<<<<<< HEAD
 import { motion, AnimatePresence } from 'motion/react';
+=======
+import { motion, AnimatePresence } from 'framer-motion';
+>>>>>>> 1761b947dfd65ad34da9059e09d9a7b3205a9949
 import { ethers } from 'ethers';
 
 const TextHack = ({ text, className }: { text: string; className?: string }) => {
@@ -69,7 +73,11 @@ const BlockChainBreak = () => {
     };
 
     return (
+<<<<<<< HEAD
         <div className="flex scale-75 flex-col items-center justify-center p-8 w-full bg-[#F8FAFC] text-slate-900 overflow-hidden relative">
+=======
+        <div className="flex flex-col items-center justify-center p-8 w-full bg-[#F8FAFC] text-slate-900 overflow-hidden relative">
+>>>>>>> 1761b947dfd65ad34da9059e09d9a7b3205a9949
             <div className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none"
                 style={{ backgroundImage: 'radial-gradient(#64748b 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
 
@@ -90,7 +98,11 @@ const BlockChainBreak = () => {
                     return (
                         <React.Fragment key={block.id}>
                             {index > 0 && (
+<<<<<<< HEAD
                                 <div className="relative h-12 w-1 lg:h-1 lg:w-12 flex items-center justify-center">
+=======
+                                <div className="relative h-12 w-1 lg:h-1 lg:w-20 flex items-center justify-center">
+>>>>>>> 1761b947dfd65ad34da9059e09d9a7b3205a9949
                                     <motion.div
                                         className={`w-full h-full transition-colors duration-500 ${isInvalid ? 'bg-red-200' : 'bg-indigo-500'}`}
                                         animate={{ height: isInvalid ? '100%' : '2px', width: isInvalid ? '2px' : '100%' }}
@@ -113,7 +125,11 @@ const BlockChainBreak = () => {
                                     borderColor: isInvalid ? '#ef4444' : '#e2e8f0',
                                     scale: isInvalid ? 1.02 : 1,
                                 }}
+<<<<<<< HEAD
                                 className={`relative w-50 lg:w-50 p-6 rounded-2xl border-2 bg-white/70 backdrop-blur-sm transition-all duration-500 ${isInvalid
+=======
+                                className={`relative w-full lg:w-80 p-6 rounded-2xl border-2 bg-white/70 backdrop-blur-sm transition-all duration-500 ${isInvalid
+>>>>>>> 1761b947dfd65ad34da9059e09d9a7b3205a9949
                                     ? 'shadow-[0_20px_50px_rgba(239,68,68,0.1)] border-red-500'
                                     : 'shadow-[0_20px_50px_rgba(148,163,184,0.1)] hover:shadow-[0_20px_50px_rgba(79,70,229,0.1)] hover:border-indigo-200'
                                     }`}

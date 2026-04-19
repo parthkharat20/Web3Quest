@@ -1,9 +1,14 @@
 import { useState } from "react";
 import { CheckCircle2, XCircle, Download, Loader2 } from "lucide-react";
+<<<<<<< HEAD
 import { useLessonTaskVerification } from "@/src/contexts/LessonTaskVerificationContext";
 
 const InstallMetaMask = () => {
     const lessonTask = useLessonTaskVerification();
+=======
+
+const InstallMetaMask = () => {
+>>>>>>> 1761b947dfd65ad34da9059e09d9a7b3205a9949
     const [status, setStatus] = useState<"pending" | "success" | "failed" | "idle">("idle");
     const [isLoading, setIsLoading] = useState(false);
 
@@ -15,7 +20,10 @@ const InstallMetaMask = () => {
         setTimeout(() => {
             if (isMetaMaskInstalled) {
                 setStatus("success");
+<<<<<<< HEAD
                 lessonTask?.markTaskVerified();
+=======
+>>>>>>> 1761b947dfd65ad34da9059e09d9a7b3205a9949
             } else {
                 setStatus("failed");
             }

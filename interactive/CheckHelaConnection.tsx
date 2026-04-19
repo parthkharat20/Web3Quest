@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { CheckCircle2, XCircle, Loader2, Link2 } from "lucide-react";
+<<<<<<< HEAD
 import { useLessonTaskVerification } from "@/src/contexts/LessonTaskVerificationContext";
+=======
+>>>>>>> 1761b947dfd65ad34da9059e09d9a7b3205a9949
 
 const HELA_TESTNET = {
     chainId: "0xA2D08",
@@ -15,7 +18,10 @@ const HELA_TESTNET = {
 };
 
 const CheckHelaConnection = () => {
+<<<<<<< HEAD
     const lessonTask = useLessonTaskVerification();
+=======
+>>>>>>> 1761b947dfd65ad34da9059e09d9a7b3205a9949
     const [status, setStatus] = useState<"success" | "failed" | "pending" | "idle">("idle");
     const [error, setError] = useState<string | null>(null);
     const [chainId, setChainId] = useState<string | null>(null);
@@ -56,7 +62,10 @@ const CheckHelaConnection = () => {
             });
             setStatus("success");
             setChainId(HELA_TESTNET.chainId);
+<<<<<<< HEAD
             lessonTask?.markTaskVerified();
+=======
+>>>>>>> 1761b947dfd65ad34da9059e09d9a7b3205a9949
         } catch (switchError) {
             setStatus("failed");
             setError("Hela Testnet is not added to MetaMask");

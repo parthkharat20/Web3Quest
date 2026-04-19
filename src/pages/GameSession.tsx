@@ -27,7 +27,10 @@ import { lessons } from '@/src/utils/lessons';
 import { cn } from '@/src/utils/utils';
 import { unlockAchievement } from '@/src/services/achievementsService';
 import { useLayout } from '@/src/components/ui/Layout';
+<<<<<<< HEAD
 import { fetchBattleRoomResultsFromDb, type BattlePlayerDbInfo } from '@/src/services/progressDbService';
+=======
+>>>>>>> 1761b947dfd65ad34da9059e09d9a7b3205a9949
 
 export default function GameSessionPage() {
   const { setHideSidebar } = useLayout();
@@ -48,6 +51,7 @@ export default function GameSessionPage() {
   const [loading, setLoading] = useState(true);
   const [isLeaveModalOpen, setIsLeaveModalOpen] = useState(false);
   const historySaved = useRef(false);
+<<<<<<< HEAD
   const battleFetchDone = useRef(false);
   const [battleDbStandings, setBattleDbStandings] = useState<BattlePlayerDbInfo[] | null>(null);
 
@@ -56,6 +60,8 @@ export default function GameSessionPage() {
     battleFetchDone.current = false;
     setBattleDbStandings(null);
   }, [id]);
+=======
+>>>>>>> 1761b947dfd65ad34da9059e09d9a7b3205a9949
 
   useEffect(() => {
     if (!id || userLoading) return;
@@ -175,6 +181,7 @@ export default function GameSessionPage() {
     }
   }, [session?.status, user, players, session?.mode, session?.prize_pool]);
 
+<<<<<<< HEAD
   useEffect(() => {
     if (session?.status !== 'ended' || !id) return;
     if (session.mode !== 'multiplayer' && session.mode !== 'contest') return;
@@ -185,6 +192,8 @@ export default function GameSessionPage() {
       .catch((e) => console.error('Battle room DB fetch failed', e));
   }, [session?.status, session?.mode, id]);
 
+=======
+>>>>>>> 1761b947dfd65ad34da9059e09d9a7b3205a9949
   const handleStartGame = async () => {
     if (!session || !user || session.created_by !== user.id) return;
     
@@ -432,6 +441,7 @@ export default function GameSessionPage() {
           ))}
         </div>
 
+<<<<<<< HEAD
         {battleDbStandings && battleDbStandings.length > 0 && (session.mode === 'multiplayer' || session.mode === 'contest') && (
           <div className="mb-12 text-left rounded-2xl border border-slate-200 bg-slate-50/80 p-6">
             <p className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-4">Firestore snapshot (username · score · rank)</p>
@@ -446,6 +456,8 @@ export default function GameSessionPage() {
           </div>
         )}
 
+=======
+>>>>>>> 1761b947dfd65ad34da9059e09d9a7b3205a9949
         <Button size="xl" className="px-12 py-6 text-lg" onClick={() => navigate('/game/lobby')}>
           Return to Arena
         </Button>

@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { CheckCircle2, AlertCircle, Loader2, Wallet, Plus, LogIn } from "lucide-react";
+<<<<<<< HEAD
 import { useLessonTaskVerification } from "@/src/contexts/LessonTaskVerificationContext";
+=======
+>>>>>>> 1761b947dfd65ad34da9059e09d9a7b3205a9949
 
 type Status =
     | "checking"
@@ -10,7 +13,10 @@ type Status =
     | "connected";
 
 const WalletCreateAndConnect = () => {
+<<<<<<< HEAD
     const lessonTask = useLessonTaskVerification();
+=======
+>>>>>>> 1761b947dfd65ad34da9059e09d9a7b3205a9949
     const [status, setStatus] = useState<Status>("checking");
     const [address, setAddress] = useState<string | null>(null);
     const [isLoading, setIsLoading] = useState(false);
@@ -32,7 +38,10 @@ const WalletCreateAndConnect = () => {
         if (accounts.length > 0) {
             setAddress(accounts[0]);
             setStatus("wallet_exists");
+<<<<<<< HEAD
             lessonTask?.markTaskVerified();
+=======
+>>>>>>> 1761b947dfd65ad34da9059e09d9a7b3205a9949
         } else {
             setStatus("no_account");
         }
@@ -50,7 +59,10 @@ const WalletCreateAndConnect = () => {
 
             setAddress(accounts[0]);
             setStatus("connected");
+<<<<<<< HEAD
             lessonTask?.markTaskVerified();
+=======
+>>>>>>> 1761b947dfd65ad34da9059e09d9a7b3205a9949
         } catch (err) {
             console.error(err);
         }

@@ -1,7 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
+<<<<<<< HEAD
 import { motion, AnimatePresence } from 'motion/react';
 import { ethers } from 'ethers';
 import { useLessonTaskVerification } from '@/src/contexts/LessonTaskVerificationContext';
+=======
+import { motion, AnimatePresence } from 'framer-motion';
+import { ethers } from 'ethers';
+>>>>>>> 1761b947dfd65ad34da9059e09d9a7b3205a9949
 
 const TextHack = ({ text, className }: { text: string; className?: string }) => {
     const [display, setDisplay] = useState(text);
@@ -34,7 +39,10 @@ interface Block {
 }
 
 const BlockChainBreak = () => {
+<<<<<<< HEAD
     const lessonTask = useLessonTaskVerification();
+=======
+>>>>>>> 1761b947dfd65ad34da9059e09d9a7b3205a9949
     const [blocks, setBlocks] = useState<Block[]>([]);
     const [invalidIndex, setInvalidIndex] = useState<number | null>(null);
 
@@ -216,7 +224,10 @@ const BlockChainBreak = () => {
                                         return updated;
                                     }));
                                     setInvalidIndex(null);
+<<<<<<< HEAD
                                     lessonTask?.markTaskVerified();
+=======
+>>>>>>> 1761b947dfd65ad34da9059e09d9a7b3205a9949
                                 }}
                                 className="group relative px-12 py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest transition-all duration-300 hover:shadow-[0_10px_40px_rgba(79,70,229,0.3)] hover:-translate-y-1 active:scale-95"
                             >
