@@ -1,6 +1,8 @@
 
 # 🚀 Web3Quest — Gamified Web3 Learning Platform
 
+🌐 Live App: https://web-three-quest.vercel.app
+
 ## 🧠 Overview
 
 Web3Quest is a **gamified, interactive learning platform** designed to simplify Web3 education by transforming it into a **“Learn → Do → Earn”** experience.
